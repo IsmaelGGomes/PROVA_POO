@@ -19,10 +19,6 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descricao');
             $table->date('prazo_termino');
-            /* $table->bigInteger('setor_id')->unsigned();
-            $table->bigInteger('situacao_id')->unsigned(); */
-           /*  $table->foreign('setor_id')->references('id')->on('setors');
-            $table->foreign('situacao_id')->references('id')->on('situacaos'); */
         });
     }
 
