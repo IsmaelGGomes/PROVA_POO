@@ -9,7 +9,14 @@ class Chamado extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'setor_id',
+        'situacao_id',
+        'titulo',
+        'descricao',
+        'prazo_termino',
+    ];
+    
     public function setor()
     {
         return $this->belongsTo(Setor::class,'setors_id');

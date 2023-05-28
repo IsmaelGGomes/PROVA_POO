@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Chamado as ModelsChamado;
 use Illuminate\Http\Request;
 
-class Chamado extends Controller
+class Situacao extends Controller
 {
     
     public function index()
     {
-        return view('pages.chamado.tabela_chamado');
+        return view('pages.situacao.tabela_situacao');
     }
 
     public function create()
     {
-        return view('pages.chamado.adicionar_chamado');
+        return view('pages.situacao.adicionar_situacao');
     }
 
     public function store(Request $request)
@@ -43,4 +43,5 @@ class Chamado extends Controller
     {
         //
     }
+
 }

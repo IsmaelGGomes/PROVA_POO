@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Chamado;
+use App\Http\Controllers\Situacao;
+use App\Http\Controllers\Setor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/home',[Chamado::class,'index']);
-route::get('/adicionar',[Chamado::class,'create']);
-route::get('/adicionar_setor',[Chamado::class,'setor']);
+/* CRUD CHAMADO */
+route::get('/chamado/listar_chamado',[Chamado::class,'index']);
+route::get('/chamado/adicionar_chamado',[Chamado::class,'create']);
+
+/* CRUD SETOR */
+route::get('/setor/listar_setor',[Setor::class,'index']);
+route::get('/setor/adicionar_setor',[Setor::class,'create']);
+route::post('/setor/adicionar_setor',[Setor::class,'store']);
+route::get('/setor/editar_setor/{id}',[Setor::class,'edit']);
+route::put('/setor/editar_setor/{id}',[Setor::class,'update']);
+route::delete('/setor/editar_setor/{id}',[Setor::class,'destroy']);
+
+/* CRUD SITUACAO */
+route::get('/adicionar_setor',[Situacao::class,'setor']);

@@ -11,6 +11,7 @@ class Setor extends Model
 
     protected $fillable = [
         'descricao',
+        'setor',
     ];
 
     public function chamados()
