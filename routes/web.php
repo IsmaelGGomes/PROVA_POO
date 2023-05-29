@@ -30,7 +30,12 @@ route::get('/setor/adicionar_setor',[Setor::class,'create']);
 route::post('/setor/adicionar_setor',[Setor::class,'store']);
 route::get('/setor/editar_setor/{id}',[Setor::class,'edit']);
 route::put('/setor/editar_setor/{id}',[Setor::class,'update']);
-route::delete('/setor/editar_setor/{id}',[Setor::class,'destroy']);
+route::delete('/setor/deletar_setor/{id}',[Setor::class,'destroy']);
 
 /* CRUD SITUACAO */
-route::get('/adicionar_setor',[Situacao::class,'setor']);
+route::get('/situacao/listar_situacao',[Situacao::class,'index']);
+route::get('/situacao/adicionar_situacao',[Situacao::class,'create']);
+route::post('/situacao/adicionar_situacao',[Situacao::class,'store']);
+route::get('/situacao/editar_situacao/{id}',[Situacao::class,'edit']);
+route::put('/situacao/editar_situacao/{id}',[Situacao::class,'update']);
+route::delete('/situacao/deletar_situacao/{id}',[Situacao::class,'destroy']);

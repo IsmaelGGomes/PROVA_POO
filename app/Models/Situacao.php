@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Situacao extends Model
 {
-    use HasFactory;
+use HasFactory;
 
+protected $fillable = [
+    'descricao',
 
-    public function chamados()
-    {
-        return $this->hasMany(Chamado::class);
-    }
+];
+
+public function chamados()
+{
+    return $this->hasMany(Chamado::class);
+}
 }
