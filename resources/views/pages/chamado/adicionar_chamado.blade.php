@@ -11,15 +11,11 @@
     <div class="form-group">
         <label for="">Setor</label>
         <select class="form-select" aria-label="Default select example">
-            <option selected>Setor</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected disabled >Selecione o setor</option>
+            @foreach($filter as $items)
+                <option name="setor" value="{{$items}}">{{$items}}</option>
+            @endforeach
         </select>
-    </div>
-    <div class="form-group">
-        <label for="">Situação</label>
-        <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
     </div>
     <div class="form-group">
         <label for="">Prazo término</label>

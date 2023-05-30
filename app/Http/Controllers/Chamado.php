@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chamado as ModelsChamado;
+use App\Models\Setor;
 use Illuminate\Http\Request;
 
 class Chamado extends Controller
@@ -15,12 +16,22 @@ class Chamado extends Controller
 
     public function create()
     {
-        return view('pages.chamado.adicionar_chamado');
+        $filter = Setor::pluck('setor')->unique();
+        return view('pages.chamado.adicionar_chamado', compact('filter'));
     }
 
     public function store(Request $request)
     {
-        //
+        $itens = $request->all();
+        $situacao = 'Pendente';
+        /* ModelsChamado::create(array_merge($this->data, [
+            'situacao' => $situacao
+        ])); */
+        $itens['situacao'] = $situacao;
+        
+        ModelsChamado::create($itens);
+        
+        return redirect('/chamado/listar_chamado');
     }
 
     public function show($id)

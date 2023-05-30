@@ -11,7 +11,6 @@ use HasFactory;
 
 protected $fillable = [
     'descricao',
-
 ];
 
 public function chamados()

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setor as ModelsSetor;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class Setor extends Controller
 {
@@ -22,8 +23,19 @@ class Setor extends Controller
 
     public function store(Request $request)
     {
+        $data = $request->validate(
+            [
+            'setor' => 'required',Rule::unique('setors')->where('setor', $request['setor']),
+            'descricao' => 'nullable|string'
+            ],
+            [
+            'setor.unique' => 'Setor já cadastrado !',
+            ]
+        );
+
         $itens = $request->all();
-        ModelsSetor::create($itens);
+
+        ModelsSetor::create($data);
         
         return redirect('/setor/listar_setor');
     }

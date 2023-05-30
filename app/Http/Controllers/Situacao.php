@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chamado as ModelsChamado;
-use App\Models\Situacao as MoldesSituacao;
+use App\Models\Situacao as ModelsSituacao;
 use Illuminate\Http\Request;
 
 class Situacao extends Controller
@@ -11,7 +10,7 @@ class Situacao extends Controller
     
     public function index()
     {
-        $situacao = MoldesSituacao::all();
+        $situacao = ModelsSituacao::all();
         return view('pages.situacao.tabela_situacao', compact('situacao'));
     }
 
@@ -23,7 +22,8 @@ class Situacao extends Controller
     public function store(Request $request)
     {
         $itens = $request->all();
-        MoldesSituacao::create($itens);
+        ModelsSituacao::create($itens);
+        return redirect('/situacao/listar_situacao');
     }
 
     public function show($id)
@@ -33,14 +33,14 @@ class Situacao extends Controller
 
     public function edit($id)
     {
-        $setores = MoldesSituacao::find($id);
-        return view('pages.situacao.situacao',compact('situacoes'));
+        $situacao = ModelsSituacao::find($id);
+        return view('pages.situacao.editar_situacao',compact('situacao'));
     }
 
     
     public function update(Request $request, $id)
     {
-        $queryId = MoldesSituacao::find($id);
+        $queryId = ModelsSituacao::find($id);
         $queryId->update($request->all());
 
         return redirect("/situacao/listar_situacao");
@@ -48,7 +48,7 @@ class Situacao extends Controller
 
     public function destroy($id)
     {
-        $queryId = MoldesSituacao::find($id);
+        $queryId = ModelsSituacao::find($id);
         $queryId->delete($id);
 
         return redirect("/situacao/listar_situacao");
