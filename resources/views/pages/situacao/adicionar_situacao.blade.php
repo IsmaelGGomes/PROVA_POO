@@ -11,11 +11,11 @@
     <div class="form-group">
         
         <div class="form-check form-check-inline">
-            <input class="form-check-input" name="inlineRadioOptions" value="1" type="radio" id="inlineRadio1">
+            <input class="form-check-input" name="primario" value="1" type="radio" id="inlineRadio1">
             <label class="form-check-label" for="inlineRadio1">Sim</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" name="inlineRadioOptions" value="2" type="radio" id="inlineRadio2">
+            <input class="form-check-input" name="primario" value="2" type="radio" id="inlineRadio2">
             <label class="form-check-label" for="inlineRadio2">Não</label>
         </div>
     </div>
