@@ -16,7 +16,7 @@ class Chamado extends Controller
 
     public function create()
     {
-        $filter = Setor::pluck('setor')->unique();
+        $filter = Setor::all();
         return view('pages.chamado.adicionar_chamado', compact('filter'));
     }
 
@@ -27,7 +27,7 @@ class Chamado extends Controller
         /* ModelsChamado::create(array_merge($this->data, [
             'situacao' => $situacao
         ])); */
-        $itens['situacao'] = $situacao;
+        $itens['situacaos_id'] = $situacao;
         
         ModelsChamado::create($itens);
         

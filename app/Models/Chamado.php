@@ -10,8 +10,8 @@ class Chamado extends Model
     use HasFactory;
 
     protected $fillable = [
-        'setor',
-        'situacao',
+        'setors_id',
+        'situacaos_id',
         'titulo',
         'descricao',
         'prazo_termino',
