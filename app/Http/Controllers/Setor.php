@@ -6,6 +6,7 @@ use App\Models\Setor as ModelsSetor;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Unique;
 
 class Setor extends Controller
 {
@@ -25,7 +26,7 @@ class Setor extends Controller
     {
         $data = $request->validate(
             [
-            'setor' => 'required',Rule::unique('setors')->where('setor', $request['setor']),
+            'setor' => 'required|unique:setors',
             'descricao' => 'nullable|string'
             ],
             [
@@ -34,7 +35,6 @@ class Setor extends Controller
         );
 
         $itens = $request->all();
-
         ModelsSetor::create($data);
         
         return redirect('/setor/listar_setor');

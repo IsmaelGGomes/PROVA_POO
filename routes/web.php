@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.chamado.tabela_chamado');
 });
 
 /* CRUD CHAMADO */
 route::get('/chamado/listar_chamado',[Chamado::class,'index']);
 route::get('/chamado/adicionar_chamado',[Chamado::class,'create']);
+route::post('/chamado/adicionar_chamado',[Chamado::class,'store']);
 
 /* CRUD SETOR */
 route::get('/setor/listar_setor',[Setor::class,'index']);
