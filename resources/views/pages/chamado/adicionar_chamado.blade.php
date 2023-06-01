@@ -11,10 +11,10 @@
     </div>
     <div class="form-group">
         <label for="">Setor</label>
-        <select class="form-select" aria-label="Default select example">
+        <select name="setors_id" class="form-select" aria-label="Default select example">
             <option selected disabled >Selecione o setor</option>
             @foreach($filter as $items)
-                <option name="setors_id" value="{{$items->id}}">{{$items->setor}}</option>
+                <option value="{{$items->id}}">{{$items->setor}}</option>
             @endforeach
         </select>
     </div>

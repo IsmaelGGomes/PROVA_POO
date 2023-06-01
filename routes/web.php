@@ -24,6 +24,9 @@ Route::get('/', function () {
 route::get('/chamado/listar_chamado',[Chamado::class,'index']);
 route::get('/chamado/adicionar_chamado',[Chamado::class,'create']);
 route::post('/chamado/adicionar_chamado',[Chamado::class,'store']);
+route::get('/chamado/editar_chamado/{id}',[Chamado::class,'edit']);
+route::put('/chamado/editar_chamado/{id}',[Chamado::class,'update']);
+route::delete('/chamado/deletar_chamado/{id}',[Chamado::class,'destroy']);
 
 /* CRUD SETOR */
 route::get('/setor/listar_setor',[Setor::class,'index']);

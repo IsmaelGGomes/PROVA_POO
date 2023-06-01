@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class Situacao extends Controller
 {
-    
+
     public function index()
     {
         $situacao = ModelsSituacao::all();
@@ -21,11 +21,15 @@ class Situacao extends Controller
 
     public function store(Request $request)
     {
-        $query = ModelsSituacao::where('primairo', '=' ,1)->get();
+        $query = ModelsSituacao::where('primario', 1)->value('id');;
+        //dd($query);
+        $findQuery = ModelsSituacao::find($query);
         if ($request['primario'] == 1) {
-            $query->update($request['primairo'] = 2);
+            $findQuery->update([
+                'primario' => 2
+            ]);
         }
-        dd($query);
+
         //ModelsSituacao::
         $itens = $request->all();
         ModelsSituacao::create($itens);
@@ -40,10 +44,10 @@ class Situacao extends Controller
     public function edit($id)
     {
         $situacao = ModelsSituacao::find($id);
-        return view('pages.situacao.editar_situacao',compact('situacao'));
+        return view('pages.situacao.editar_situacao', compact('situacao'));
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $queryId = ModelsSituacao::find($id);
@@ -59,5 +63,4 @@ class Situacao extends Controller
 
         return redirect("/situacao/listar_situacao");
     }
-
 }
