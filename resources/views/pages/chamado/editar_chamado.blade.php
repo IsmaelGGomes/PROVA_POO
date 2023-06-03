@@ -1,7 +1,7 @@
 @extends('components.formulario')
 @section('nome_form', 'Editar Chamado')
 @section('form')
-<form action="/chamdo/editar_chamado/" method="POST">
+<form action="/chamado/editar_chamado/{{$chamados->id}}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group">
@@ -17,19 +17,27 @@
                     @if ($chamados->setor->setor == $item)
                         selected
                     @endif
-                    value="{{$item}}"
+                    value="{{$indice}}"
                 >
                     {{$item}}
-                    {{$indice}}
                 </option>
             @endforeach   
         </select>
     </div>
     <div class="form-group">
         <label for="">Situação</label>
-        <select name="setors_id" class="form-select" aria-label="Default select example">
+        <select name="situacaos_id" class="form-select" aria-label="Default select example">
             <option disabled>Selecione a situação</option>
-            <option selected value="">{{$chamados->situacao->descricao}}</option>
+            @foreach($situacaos as $indice => $item)
+                <option 
+                    @if ($chamados->situacao->descricao == $item)
+                        selected
+                    @endif
+                    value="{{$indice}}"
+                >
+                    {{$item}}
+                </option>
+            @endforeach
         </select>
     </div>
     <div class="form-group">

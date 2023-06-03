@@ -41,23 +41,14 @@ class Chamado extends Controller
     public function edit($id)
     {
         $chamados = ModelsChamado::find($id);
-       /*  $setores = Setor::pluck('setor');
-        foreach ($setores as $key => $value) {
-            if ($value['setor'] == $chamados['setor'].value('setor')) {
-                unset($setores[$key]);
-            };
-        } */
+        $setores = Setor::select('id', 'setor')->pluck('setor', 'id');
+        $situacaos = Situacao::select('id', 'descricao')->pluck('descricao', 'id');
         
-        /* $resultadoFiltro = $setores->map(function ($item, $key) {
-            if ( $item->setor == $chamados) {
-                # code...
-            }
-           ;
-        });  */
-        /* $setores = Setor::distinct()->pluck('setor'); */
-        $setores = Setor::select('id', 'setor')->distinct()->pluck('setor', 'id');
-        
-        return view('pages.chamado.editar_chamado',compact('chamados', 'setores'));
+        return view('pages.chamado.editar_chamado',compact(
+            'chamados', 
+            'setores',
+            'situacaos'
+        ));
     }
 
     

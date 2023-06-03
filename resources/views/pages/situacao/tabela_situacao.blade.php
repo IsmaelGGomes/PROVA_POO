@@ -3,21 +3,22 @@
 @section('titulo_tabela','Listagem Situações')
 
 @section('adicionar_novo')
-<a href="/situacao/adicionar_situacao" class="btn btn-primary"><span class="bi-plus-square-fill"></span>Adicionar novo</a>
+<a href="/situacao/adicionar_situacao" style="height: 40px;" class="btn btn-primary"><span class="bi-plus-square-fill"></span>  Adicionar novo</a>
 @endsection
 
 @section('item_header')
     <th>Id</th>
-    <th>Descrição</th>
-    <th>É primário ?</th>
+    <th style="">Descrição</th>
+    <th style="width: 8em; padding-left: 22px">É primário ?</th>
+    <th style="width: 13em" class="">Opções</th>
 @endsection
 
 @section('item_body')
-    @foreach($situacao as $items)
+    @forelse($situacao as $items)
     <tr>
         <td>{{$items->id}}</td>
         <td>{{$items->descricao}}</td>
-        <td> 
+        <td style="padding-left: 3em"> 
             @if($items->primario == 1)
                 <svg xmlns="http://www.w3.org/2000/svg"  color="green" width="28" height="28" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                     <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -28,7 +29,7 @@
               </svg>
             @endif
         </td>
-        <td class="d-flex flex-row">
+        <td class="d-flex flex-row gap-2 justify-content-center">
             <form action="/situacao/deletar_situacao/{{$items->id}}" method="post">
                 @csrf
                 @method('DELETE')
@@ -37,5 +38,9 @@
             <a href="/situacao/editar_situacao/{{$items->id}}" class="btn btn-info"><span class="bi bi-pencil-square"></span>Editar</a>
         </td>
     </tr>
-    @endforeach
+    @empty
+    <tr>
+        <td colspan="7" style="width: 100%" class="text-center">Nenhum registro cadastrado !</td>
+    </tr>
+    @endforelse
 @endsection

@@ -1,11 +1,11 @@
 @extends('components.formulario')
 @section('nome_form', 'Adicionar Setor')
 @section('form')
-<span class="">
-    @error('setor')
+@error('setor')
+<div class="alert alert-danger" role="alert">
     {{$message}}
-    @enderror
-</span>
+</div>
+@enderror
 <form action="/setor/adicionar_setor" method="post">
     @csrf
     <div class="form-group">
