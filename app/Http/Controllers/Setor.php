@@ -33,8 +33,6 @@ class Setor extends Controller
             'setor.unique' => 'Setor já cadastrado !',
             ]
         );
-
-        $itens = $request->all();
         ModelsSetor::create($data);
         
         return redirect('/setor/listar_setor');

@@ -7,11 +7,11 @@
     @csrf
     <div class="form-group">
         <label for="">Título</label>
-        <input type="text" name="titulo" class="form-control" id="" aria-describedby="emailHelp" placeholder="Insira o titulo">
+        <input type="text" required name="titulo" class="form-control" id="" aria-describedby="emailHelp" placeholder="Insira o titulo">
     </div>
     <div class="form-group">
         <label for="">Setor</label>
-        <select name="setors_id" class="form-select" aria-label="Default select example">
+        <select required name="setors_id" class="form-select" aria-label="Default select example">
             <option selected disabled >Selecione o setor</option>
             @foreach($filter as $items)
                 <option value="{{$items->id}}">{{$items->setor}}</option>
@@ -20,10 +20,10 @@
     </div>
     <div class="form-group">
         <label for="">Prazo término</label>
-        <input type="date" name="prazo_termino" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="date" required name="prazo_termino" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
     </div>
     <div class="form-floating mt-2">
-        <textarea class="form-control" name="descricao" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea class="form-control" required name="descricao" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
         <label for="floatingTextarea">Descreva seu chamado</label>
     </div>
     <button type="submit" class="btn btn-primary mt-4">Enviar</button>

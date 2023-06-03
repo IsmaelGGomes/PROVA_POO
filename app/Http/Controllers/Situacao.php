@@ -22,15 +22,12 @@ class Situacao extends Controller
     public function store(Request $request)
     {
         $query = ModelsSituacao::where('primario', 1)->value('id');;
-        //dd($query);
         $findQuery = ModelsSituacao::find($query);
         if ($request['primario'] == 1) {
             $findQuery->update([
                 'primario' => 2
             ]);
         }
-
-        //ModelsSituacao::
         $itens = $request->all();
         ModelsSituacao::create($itens);
         return redirect('/situacao/listar_situacao');

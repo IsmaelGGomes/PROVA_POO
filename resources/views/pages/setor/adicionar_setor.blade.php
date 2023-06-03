@@ -1,6 +1,7 @@
 @extends('components.formulario')
 @section('nome_form', 'Adicionar Setor')
 @section('form')
+
 @error('setor')
 <div class="alert alert-danger" role="alert">
     {{$message}}
