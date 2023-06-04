@@ -4,6 +4,7 @@ use App\Http\Controllers\Chamado;
 use App\Http\Controllers\Situacao;
 use App\Http\Controllers\Setor;
 use Illuminate\Support\Facades\Route;
+use App\Models\Chamado as ModelsChamado;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.chamado.tabela_chamado');
+    $data = ModelsChamado::all();
+    return view('pages.chamado.tabela_chamado', compact('data'));
 });
 
 /* CRUD CHAMADO */

@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
         <label for="">Prazo término</label>
-        <input type="date" required name="prazo_termino" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="date" required name="prazo_termino" class="form-control" id="" aria-describedby="emailHelp" placeholder="">
     </div>
     <div class="form-floating mt-2">
         <textarea class="form-control" required name="descricao" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
